@@ -245,7 +245,7 @@ public class VideoActivity extends Activity {
 
             while ((position = message.indexOf("#")) != -1) {
                 if (message.length() >= 4) {
-                    if (message.length() == 4) {
+                    if (message.length() > 4) {
                         value = message.substring(position + 1, 4);
                     } else {
                         value = message.substring(position + 1);
