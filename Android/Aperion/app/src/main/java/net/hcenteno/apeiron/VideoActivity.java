@@ -35,8 +35,8 @@ import java.util.concurrent.Executors;
 
 public class VideoActivity extends Activity {
 
-    private final int FIRST_LIMIT = 70; // Affect lights
-    private final int SECOND_LIMIT = 150; // Trigger vibration motors
+    private final int FIRST_LIMIT = 120; // Affect lights
+    private final int SECOND_LIMIT = 170; // Trigger vibration motors
 
     private final String TAG = VideoActivity.class.getSimpleName();
 
@@ -92,6 +92,7 @@ public class VideoActivity extends Activity {
         setContentView(R.layout.video_view);
 
         textView = (TextView) findViewById(R.id.textview);
+        textView.setVisibility(View.GONE); // set to View.Visible for calibrating the distance thresholds
 
         mVideoView = (VideoView) findViewById(R.id.video_view);
         mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {

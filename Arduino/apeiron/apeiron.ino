@@ -41,8 +41,8 @@ bool alertMode;
 
 int val = 0;
 
-const int FIRST_LIMIT = 70; // Distance threshold to start affecting the lighting
-const int SECOND_LIMIT = 150; // Distance threshold to start vibration
+const int FIRST_LIMIT = 120; // Distance threshold to start affecting the lighting
+const int SECOND_LIMIT = 170; // Distance threshold to start vibration
 const int LEDS_ALERT_PERIOD = 5;
 const int LEDS_IDLE_PERIOD = 20;
 
