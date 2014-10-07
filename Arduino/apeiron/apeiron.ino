@@ -21,7 +21,6 @@
 
 #include <SoftTimer.h>
 #include <Task.h>
-//#include <DistanceGP2Y0A21YK.h>
 
 const int numReadings = 20;
 
@@ -31,7 +30,7 @@ int total = 0;                  // the running total
 
 
 int led1Pin = 9;
-int led2Pin = 10;
+int led2Pin = 11;
 int motor1pin = 5;
 int motor2pin = 6;
 int analogPin = 3;
@@ -54,11 +53,7 @@ int led2Level = 0;
 int led1Dir = 1;
 int led2Dir = 1;
 
-char padding[2];
-
 bool motorState = false;
-
-//DistanceGP2Y0A21YK distSensor;
 
 Task distCheckTask(50, distanceCheck);
 Task dimLED1Task(LEDS_IDLE_PERIOD, dimLED1);
@@ -76,8 +71,6 @@ void setup()
   
   for (int thisReading = 0; thisReading < numReadings; thisReading++)
     readings[thisReading] = 0;
-
-//  distSensor.begin(A0);
 
   SoftTimer.add(&distCheckTask);
   SoftTimer.add(&dimLED1Task);
@@ -111,8 +104,7 @@ void distanceCheck(Task* task) {
   distance = average(analogRead(A0));
     
   Serial.print("#");
-  sprintf(padding, "%03d", distance);
-  Serial.print(padding);
+  paddedPrint(distance, 3);
 
   if (distance > FIRST_LIMIT) {
     
@@ -141,6 +133,17 @@ void distanceCheck(Task* task) {
   }
 }
 
+void paddedPrint( int number, byte width ) {
+  int currentMax = 10;
+  for (byte i=1; i<width; i++){
+    if (number < currentMax) {
+      Serial.print("0");
+    }
+    currentMax *= 10;
+  } 
+  Serial.print(number);
+}
+
 void dimLED1(Task * task) {
 
   led1Level = led1Level + (led1Dir * led1Step);
@@ -159,6 +162,7 @@ void dimLED1(Task * task) {
 void dimLED2(Task * task) {
 
   led2Level = led2Level + (led2Dir * (random(0, 2) + led2Step));
+  
   if (led2Level > 255) {
     led2Dir = -1;
     led2Level = 254;
