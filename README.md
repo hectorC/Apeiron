@@ -5,7 +5,7 @@ This is the Arduino and Android code for the project Apeiron. For more informati
 
 ## Author, License, and Copyright
 
-Aperon is written and maintained by Hector Centeno.
+Aperon is written by Hector Centeno, http://www.hcenteno.net
 
 This application is licensed under *LGPL Version 2.1*.  Please see LICENSE.txt for the
 complete license.
