@@ -55,8 +55,8 @@ import java.util.concurrent.Executors;
 
 public class VideoActivity extends Activity {
 
-    private final int FIRST_LIMIT = 120; // Affect lights
-    private final int SECOND_LIMIT = 170; // Trigger vibration motors
+    private final int FIRST_LIMIT = 120; // IR distance sensor threshold to start affecting lights
+    private final int SECOND_LIMIT = 170; // IR distance sensor threshold to trigger vibration motors
 
     private final String TAG = VideoActivity.class.getSimpleName();
 
@@ -128,7 +128,6 @@ public class VideoActivity extends Activity {
 
         // Load images
         bitmaps = new Bitmap[4];
-
         for (int i=0; i < bitmaps.length; i++) {
             bitmaps[i] = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getPath() + "/Movies/Apeiron/img" + i + ".png");
         }
