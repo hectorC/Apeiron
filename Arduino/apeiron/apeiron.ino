@@ -176,21 +176,14 @@ void dimLED2(Task * task) {
 }
 
 int average(int input) {
- // subtract the last reading:
   total= total - readings[index];         
-  // read from the sensor:  
   readings[index] = input; 
-  // add the reading to the total:
-  total= total + readings[index];       
-  // advance to the next position in the array:  
+  total= total + readings[index];         
   index = index + 1;                    
 
-  // if we're at the end of the array...
   if (index >= numReadings)              
-    // ...wrap around to the beginning: 
     index = 0;                           
 
-  // calculate the average:
   return total / numReadings;  
 }
 
