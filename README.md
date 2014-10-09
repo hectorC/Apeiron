@@ -3,7 +3,7 @@ Apeiron
 
 This is the Arduino and Android code for the project Apeiron. For more information, please visit: http://blog.ocad.ca/wordpress/digf6l01-fw201402-01/2014/10/project-01-apeiron/
 
-## Author, License, and Copyright
+## Author and License
 
 Aperon is written by Hector Centeno, http://www.hcenteno.net
 
